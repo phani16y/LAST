@@ -1,0 +1,160 @@
+<mvc:View
+		controllerName="p4.controller.View1"
+		xmlns:mvc="sap.ui.core.mvc"
+		xmlns="sap.m"
+		xmlns:f="sap.f"
+		xmlns:layout="sap.ui.layout"
+                xmlns:t="sap.ui.table"
+		height="100%">
+		<f:DynamicPage id="page1" busy="{View>/busy}" busyIndicatorDelay="{View>/delay}"
+			stickySubheaderProvider="iconTabBar"
+                        class="sapUiNoContentPadding"
+			>
+			<!-- DynamicPage Title -->
+			<f:title>
+			<f:DynamicPageTitle id ="dt">
+			<f:heading>
+                         <Image src="./images/SAP_Ariba_logo.jpg" width="100px" height="70px"  id="image1"/>
+			</f:heading>
+
+			<f:expandedContent>
+                        <ObjectAttribute  id="title1" title="Purchase Order"   active="true" press="onPopup"/>
+			</f:expandedContent>
+			<f:snappedContent>
+			<ObjectAttribute  id="title2" title="Purchase Order"  active="true" press="onPopup"/>
+			</f:snappedContent>
+                        <f:content>
+                          <OverflowToolbar id="of">
+			  <Title id="t1" level="H1" text="Purchase Order History" textAlign="Center" width="1000px"  titleStyle="Auto"/>
+                          </OverflowToolbar>	
+                          <OverflowToolbar id="of1" >
+                          <Label text="User :" id="userl0" textAlign="End" width="800px"/>
+                          <Text text="{userData>/name}" id="text42" textAlign="End" />
+                          </OverflowToolbar>	
+			</f:content>
+			</f:DynamicPageTitle>
+			</f:title>
+			<!-- DynamicPage Header -->
+			<f:header>
+		        <f:DynamicPageHeader pinnable="true" id ="dh">
+			<layout:HorizontalLayout allowWrapping="true" id ="lh1" >
+			<layout:VerticalLayout  id ="vh1" class="sapUiMediumMarginEnd">
+            <ObjectAttribute  id="attribute1" title="Company Code"  />
+            <ObjectAttribute  id="attribute3" title="Purchase Org"/>
+            </layout:VerticalLayout>
+            <layout:VerticalLayout  id ="vh3" class="sapUiMediumMarginEnd">
+            <ObjectAttribute  id="attribute2" title="Vendor"/>
+            <ObjectAttribute  id="attribute6" title="Purchase Group"/>
+	    </layout:VerticalLayout>
+
+            <layout:VerticalLayout  id ="vh4" class="sapUiMediumMarginEnd">
+            <ObjectAttribute  id="attribute4" title="Currency"/>
+	    </layout:VerticalLayout>
+
+	    <layout:VerticalLayout id ="vh2">
+            <ObjectAttribute  id="attribute7" title="Created On" />
+            <ObjectAttribute  id="attribute8" title="Created By"/>
+	    </layout:VerticalLayout>
+	    </layout:HorizontalLayout>
+	    </f:DynamicPageHeader>
+	    </f:header>
+	    <f:content>
+	    <IconTabBar id="iconTabBar" >
+	    <items>
+             <IconTabFilter text="Goods Receipts" id="filter0" >
+            <content>
+          <t:Table rows="{ path: 'GrModel>/' }"  id="table0" selectionMode="None" visibleRowCount="15">
+            <t:columns>
+                <t:Column id="column0" sortProperty="Belnr" filterProperty="Belnr">
+                        <Label text="Material Document" id="label0"/>
+                        <t:template>
+                        <Text text="{GrModel>Belnr}" id="text4"/>
+                        </t:template>
+                </t:Column>
+                <t:Column id="column20" sortProperty="Bezei" filterProperty="Buzei">
+                        <Label text="Material Document Line Item" id="labe20"/>
+                        <t:template>
+                        <Text text="{GrModel>Buzei}" id="text4_1"/>
+                        </t:template>
+                </t:Column>
+                <t:Column id="column011" sortProperty="Ebelp" filterProperty="Ebelp">
+                        <Label text="PO Line item" id="label011"/>
+                        <t:template>
+                        <Text text="{GrModel>Ebelp}" id="text5"/>
+                        </t:template>
+                </t:Column>
+                <t:Column id="column012" sortProperty="Gjahr" filterProperty="Gjahr" >
+                        <Label text="Year" id="label012"/>
+                                                <t:template>
+                        <Text text="{GrModel>Gjahr}" id="text9"/>
+                        </t:template>
+                </t:Column>
+
+                <t:Column id="column1" sortProperty="Menge" filterProperty="Menge">
+                        <Label text="Quantity" id="label1"/>
+                                                <t:template>
+                        <Text text="{GrModel>Menge}" id="text6"/>
+                        </t:template>
+                </t:Column>
+                <t:Column id="columnd1" >
+                <Label text="Document Date" id="labeld1"/>
+                                        <t:template>
+                        <Text text="{GrModel>Bldat}" id="text7"/>
+                        </t:template>
+                </t:Column>
+                <t:Column id="column2" sortProperty="Bwart" filterProperty="Bwart">
+                        <Label text="Movement Type" id="label2"/>
+                        <t:template>
+                            <Text text="{GrModel>Bwart}" id="text8"/>
+                        </t:template>
+                </t:Column></t:columns></t:Table>
+           </content>
+            </IconTabFilter>
+       <IconTabFilter text="Invoices" id="filter01">
+          <content>
+         <t:Table rows="{ path: 'InvoiceModel>/' }"  id="table01" selectionMode="None" visibleRowCount="15">
+            <t:columns>
+                <t:Column id="column01" sortProperty="Belnr" filterProperty="Belnr">
+                        <Label text="Invoice No" id="label01"/>
+                         <t:template>
+                        <Text text="{InvoiceModel>Belnr}" id="text41"/>
+                         </t:template>
+                </t:Column>
+                <t:Column id="column01_1" sortProperty="Bezei" filterProperty="Buzei">
+                        <Label text="Invoice Line Item" id="labe01_1"/>
+                        <t:template>
+                        <Text text="{InvoiceModel>Buzei}" id="text41_1"/>
+                        </t:template>
+                </t:Column>
+                <t:Column id="column11" sortProperty="Ebelp" filterProperty="Ebelp">
+                        <Label text="PO line item" id="label11"/>
+                         <t:template>
+                        <Text text="{InvoiceModel>Ebelp}" id="text51"/>
+                         </t:template>
+                </t:Column>
+                <t:Column id="columndd1" sortProperty="Gjahr" filterProperty="Gjahr">
+                        <Label text="Year" id="labeldd1"/>
+                         <t:template>
+                         <Text text="{InvoiceModel>Gjahr}" id="text61"/>
+                        </t:template>
+                </t:Column>
+                <t:Column id="column21" sortProperty="Menge" filterProperty="Menge">
+                        <Label text="Quantity" id="label21"/>
+                         <t:template>
+                        <Text text="{InvoiceModel>Menge}" id="text611"/>
+                         </t:template>
+                </t:Column>
+                <t:Column id="column22">
+                        <Label text="Posting Date" id="label22"/>
+                         <t:template>
+                        <Text text="{InvoiceModel>Budat}" id="text612"/>
+                         </t:template>
+                </t:Column></t:columns>                
+                </t:Table>
+           </content>
+            </IconTabFilter>
+	    </items>
+	    </IconTabBar>
+			</f:content>
+		</f:DynamicPage>
+</mvc:View>

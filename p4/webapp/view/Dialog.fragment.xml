@@ -1,0 +1,22 @@
+<core:FragmentDefinition
+   xmlns="sap.m"
+   xmlns:core="sap.ui.core" >
+   <Dialog
+      id="helloDialog" title="Purchase Order History" contentHeight="90px" contentWidth="400px" >
+      <content>
+      <List id="lst">
+      <InputListItem id="l" label="Purchase Order" >
+      <Input
+			id="poInput"
+			placeholder="Enter Purchase Order" maxLength="10" width="200px">
+		</Input>
+		</InputListItem>
+      </List>
+      </content>
+      <endButton>
+         <Button id="b1"
+            text="Ok"
+            press=".onCloseDialog"/>
+      </endButton>
+   </Dialog>
+</core:FragmentDefinition>

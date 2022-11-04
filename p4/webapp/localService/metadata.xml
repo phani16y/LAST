@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZACIG_PO_HISTORY_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="EKKO" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Ebeln"/>
+                </Key>
+                <Property Name="Ebeln" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Purchasing Doc." sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Company Code" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Aedat" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Created on" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Ernam" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Created by" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Lifnr" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Supplier" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Ekorg" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Purchasing Org." sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Ekgrp" Type="Edm.String" MaxLength="3" sap:unicode="false" sap:label="Purch. Group" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Waers" Type="Edm.String" MaxLength="5" sap:unicode="false" sap:label="Currency" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:semantics="currency-code"/>
+                <NavigationProperty Name="EKKOTOEKPO" Relationship="ZACIG_PO_HISTORY_SRV.EKKOTOEKPO" FromRole="FromRole_EKKOTOEKPO" ToRole="ToRole_EKKOTOEKPO"/>
+            </EntityType>
+            <EntityType Name="EKPO" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Ebeln"/>
+                </Key>
+                <Property Name="Ebeln" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Purchasing Doc." sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Ebelp" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Item" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Zekkn" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Account Assgmt No." sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Vgabe" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Trans./ev. type" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Gjahr" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Mat. Doc. Year" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Belnr" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Material Doc." sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Buzei" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Mat. Doc.Item" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Bewtp" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="PO History Cat." sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Bwart" Type="Edm.String" MaxLength="3" sap:unicode="false" sap:label="Movement type" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Budat" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Posting Date" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Menge" Type="Edm.Decimal" Precision="13" Scale="3" sap:unicode="false" sap:label="Quantity" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Bpmng" Type="Edm.Decimal" Precision="13" Scale="3" sap:unicode="false" sap:label="Qty. in OPUn" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Dmbtr" Type="Edm.Decimal" Precision="14" Scale="3" sap:unicode="false" sap:label="Amount in LC" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Wrbtr" Type="Edm.Decimal" Precision="14" Scale="3" sap:unicode="false" sap:unit="Waers" sap:label="Amount" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Waers" Type="Edm.String" MaxLength="5" sap:unicode="false" sap:label="Currency" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:semantics="currency-code"/>
+                <Property Name="Shkzg" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Debit/Credit" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Bwtar" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Valuation Type" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Elikz" Type="Edm.Boolean" sap:unicode="false" sap:label="Deliv. Compl." sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Lfgja" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Fisc.yr.ref.doc" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Lfbnr" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Reference Doc." sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Lfpos" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Ref. Doc. Item" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Reewr" Type="Edm.Decimal" Precision="14" Scale="3" sap:unicode="false" sap:label="Invoice Value" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Bldat" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Document Date" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Ernam" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Created by" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Introw" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Service line" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <Association Name="EKKOTOEKPO" sap:content-version="1">
+                <End Type="ZACIG_PO_HISTORY_SRV.EKKO" Multiplicity="0..1" Role="FromRole_EKKOTOEKPO"/>
+                <End Type="ZACIG_PO_HISTORY_SRV.EKPO" Multiplicity="*" Role="ToRole_EKKOTOEKPO"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_EKKOTOEKPO">
+                        <PropertyRef Name="Ebeln"/>
+                    </Principal>
+                    <Dependent Role="ToRole_EKKOTOEKPO">
+                        <PropertyRef Name="Ebeln"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZACIG_PO_HISTORY_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="EKKOSet" EntityType="ZACIG_PO_HISTORY_SRV.EKKO" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="EKPOSet" EntityType="ZACIG_PO_HISTORY_SRV.EKPO" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <AssociationSet Name="EKKOTOEKPOSet" Association="ZACIG_PO_HISTORY_SRV.EKKOTOEKPO" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="EKKOSet" Role="FromRole_EKKOTOEKPO"/>
+                    <End EntitySet="EKPOSet" Role="ToRole_EKKOTOEKPO"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link rel="self" href="http://emeaptsdev100.tdc.net.sap:8081/sap/opu/odata/sap/ZACIG_PO_HISTORY_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://emeaptsdev100.tdc.net.sap:8081/sap/opu/odata/sap/ZACIG_PO_HISTORY_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
